@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30608.117
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorBounce", "BlazorBounce\BlazorBounce.csproj", "{CE62AE27-90A9-4C6E-B2FF-793091440EEF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CE62AE27-90A9-4C6E-B2FF-793091440EEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE62AE27-90A9-4C6E-B2FF-793091440EEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE62AE27-90A9-4C6E-B2FF-793091440EEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE62AE27-90A9-4C6E-B2FF-793091440EEF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {98D11EFF-1E41-4741-9E55-9E5FC37C29A3}
+	EndGlobalSection
+EndGlobal
