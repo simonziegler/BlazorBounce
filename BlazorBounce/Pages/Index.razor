@@ -1,5 +1,160 @@
 ﻿@page "/"
 
-<h1>Hello, world!</h1>
+<div class="mdc-layout-grid__cell--span-12">
+    <h1 class="mdc-typography--headline4">Blazor Bounce</h1>
 
-Welcome to your new app.
+    <p class="mdc-typography--body1">
+        Demonstrates how Blazor two-way binding bounces when (i) components are enclosed in cascading values and (ii) those
+        components use a javascript web library such as Google's Material Components Web.
+    </p>
+</div>
+
+
+
+@*
+    The following three divs have successfully debounced components
+*@
+<div class="mdc-layout-grid__cell--span-4" style="background-color: #eee; padding: 1rem;">
+    <h1 class="mdc-typography--headline6">Debounced / No Cascading Value</h1>
+
+    <p>
+        <MBSelect @bind-Value="@DebouncedNoCascadingValue"
+                  Label="Two Way Bound"
+                  Items="@Rainbow" />
+    </p>
+
+    <p>
+        <MBSelect @bind-Value="@DebouncedNoCascadingValue"
+                  Label="Two Way Bound"
+                  Items="@Rainbow" />
+    </p>
+</div>
+
+<div class="mdc-layout-grid__cell--span-4" style="background-color: #eee; padding: 1rem;">
+    <h1 class="mdc-typography--headline6">Debounced / Fixed-True Cascading Value</h1>
+
+    <CascadingValue Value="@FixedTrueDefaults" IsFixed="true">
+        <p>
+            <MBSelect @bind-Value="@DebouncedFixedTrueCascadingValue"
+                      Label="Two Way Bound"
+                      Items="@Rainbow" />
+        </p>
+
+        <p>
+            <MBSelect @bind-Value="@DebouncedFixedTrueCascadingValue"
+                      Label="Two Way Bound"
+                      Items="@Rainbow" />
+        </p>
+    </CascadingValue>
+</div>
+
+<div class="mdc-layout-grid__cell--span-4" style="background-color: #eee; padding: 1rem;">
+    <h1 class="mdc-typography--headline6">Debounced / Fixed-False Cascading Value</h1>
+
+    <CascadingValue Value="@FixedFalseDefaults" IsFixed="false">
+        <p>
+            <MBSelect @bind-Value="@DebouncedFixedFalseCascadingValue"
+                      Label="Two Way Bound"
+                      Items="@Rainbow" />
+        </p>
+
+        <p>
+            <MBSelect @bind-Value="@DebouncedFixedFalseCascadingValue"
+                      Label="Two Way Bound"
+                      Items="@Rainbow" />
+        </p>
+    </CascadingValue>
+</div>
+
+
+
+@*
+    The following three divs have components that don't benefit from debouncing
+*@
+<div class="mdc-layout-grid__cell--span-4" style="background-color: #eee; padding: 1rem;">
+    <h1 class="mdc-typography--headline6">Bouncy / No Cascading Value</h1>
+
+    <p>
+        <MBSelect @bind-Value="@BouncyNoCascadingValue"
+                  Label="Two Way Bound"
+                  Items="@Rainbow" />
+    </p>
+
+    <p>
+        <MBSelect @bind-Value="@BouncyNoCascadingValue"
+                  Label="Two Way Bound"
+                  Items="@Rainbow" />
+    </p>
+</div>
+
+<div class="mdc-layout-grid__cell--span-4" style="background-color: #eee; padding: 1rem;">
+    <h1 class="mdc-typography--headline6">Bouncy / Fixed-True Cascading Value</h1>
+
+    <CascadingValue Value="@FixedTrueDefaults" IsFixed="true">
+        <p>
+            <MBSelect @bind-Value="@BouncyFixedTrueCascadingValue"
+                      Label="Two Way Bound"
+                      Items="@Rainbow" />
+        </p>
+
+        <p>
+            <MBSelect @bind-Value="@BouncyFixedTrueCascadingValue"
+                      Label="Two Way Bound"
+                      Items="@Rainbow" />
+        </p>
+    </CascadingValue>
+</div>
+
+<div class="mdc-layout-grid__cell--span-4" style="background-color: #eee; padding: 1rem;">
+    <h1 class="mdc-typography--headline6">Bouncy / Fixed-False Cascading Value</h1>
+
+    <CascadingValue Value="@FixedFalseDefaults" IsFixed="false">
+        <p>
+            <MBSelect @bind-Value="@BouncyFixedFalseCascadingValue"
+                      Label="Two Way Bound"
+                      Items="@Rainbow" />
+        </p>
+
+        <p>
+            <MBSelect @bind-Value="@BouncyFixedFalseCascadingValue"
+                      Label="Two Way Bound"
+                      Items="@Rainbow" />
+        </p>
+    </CascadingValue>
+</div>
+
+
+@code {
+    static MBListElement<string>[] Rainbow = new MBListElement<string>[]
+    {
+        new MBListElement<string> { SelectedValue = "r", Label = "Red" },
+        new MBListElement<string> { SelectedValue = "o", Label = "Orange" },
+        new MBListElement<string> { SelectedValue = "y", Label = "Yellow" },
+        new MBListElement<string> { SelectedValue = "g", Label = "Green" },
+        new MBListElement<string> { SelectedValue = "b", Label = "Blue" },
+        new MBListElement<string> { SelectedValue = "i", Label = "Indigo" },
+        new MBListElement<string> { SelectedValue = "v", Label = "Violet" }
+    };
+
+
+    string DebouncedNoCascadingValue { get; set; } = Rainbow[0].SelectedValue;
+    string DebouncedFixedTrueCascadingValue { get; set; } = Rainbow[0].SelectedValue;
+    string DebouncedFixedFalseCascadingValue { get; set; } = Rainbow[0].SelectedValue;
+
+    string BouncyNoCascadingValue { get; set; } = Rainbow[0].SelectedValue;
+    string BouncyFixedTrueCascadingValue { get; set; } = Rainbow[0].SelectedValue;
+    string BouncyFixedFalseCascadingValue { get; set; } = Rainbow[0].SelectedValue;
+
+
+
+    MBCascadingDefaults FixedTrueDefaults = new MBCascadingDefaults
+    {
+        SelectInputStyle = MBSelectInputStyle.Outlined
+    };
+
+    MBCascadingDefaults FixedFalseDefaults = new MBCascadingDefaults
+    {
+        SelectInputStyle = MBSelectInputStyle.Outlined,
+        ThemeDensity = MBDensity.Minus4
+    };
+}
