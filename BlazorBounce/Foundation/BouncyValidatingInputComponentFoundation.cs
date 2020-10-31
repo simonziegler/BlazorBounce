@@ -9,7 +9,7 @@ namespace BlazorBounce
     /// A DRY inspired abstract class providing <see cref="MBSelect{TItem}"/> and <see cref="MBRadioButtonGroup{TItem}"/> with validation.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public abstract class BouncyValidatingInputComponentFoundation<T> : BouncyInputComponentFoundation<T>
+    public abstract class BouncyValidatingInputComponentFoundation<T> : DebouncedInputComponentFoundation<T>
     {
         // This method was added in the interest of DRY and is used by MBSelect & MBRadioButtonGroup
         /// <summary>
@@ -22,7 +22,7 @@ namespace BlazorBounce
         public T ValidateItemList(IEnumerable<MBListElement<T>> items, MBItemValidation appliedItemValidation)
         {
             var componentName = Utilities.GetTypeName(GetType());
-            
+
             if (items.Count() == 0)
             {
                 throw new ArgumentException(componentName + " requires a non-empty Items parameter.");

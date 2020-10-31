@@ -15,7 +15,7 @@ namespace BlazorBounce
     /// <summary>
     /// A Material Theme select.
     /// </summary>
-    public partial class DebouncedSelect<TItem> : DebouncedValidatingInputComponentFoundation<TItem>
+    public partial class BouncySelect<TItem> : DebouncedValidatingInputComponentFoundation<TItem>
     {
 #nullable enable annotations
         /// <summary>
@@ -91,7 +91,7 @@ namespace BlazorBounce
         private string FloatingLabelClass { get; set; } = "";
         private Dictionary<TItem, MBListElement<TItem>> ItemDict { get; set; }
         private Func<TItem, object> KeyGenerator { get; set; }
-        private DotNetObjectReference<DebouncedSelect<TItem>> ObjectReference { get; set; }
+        private DotNetObjectReference<BouncySelect<TItem>> ObjectReference { get; set; }
         private ElementReference SelectReference { get; set; }
         private string SelectedText { get; set; } = "";
         private bool ShowLabel => !string.IsNullOrWhiteSpace(Label);

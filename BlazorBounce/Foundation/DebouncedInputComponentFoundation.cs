@@ -23,7 +23,6 @@ namespace BlazorBounce
         private ValidationMessageStore _parsingValidationMessages;
         private Type _nullableUnderlyingType;
         private bool _hasSetInitialParameters;
-        protected bool _instantiate = false;
 
         [CascadingParameter] private EditContext CascadedEditContext { get; set; }
 
@@ -330,9 +329,8 @@ namespace BlazorBounce
         /// </summary>
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
-            if (_instantiate)
+            if (firstRender)
             {
-                _instantiate = false;
                 _hasInstantiated = true;
                 await InitiateMcwComponent();
             }
