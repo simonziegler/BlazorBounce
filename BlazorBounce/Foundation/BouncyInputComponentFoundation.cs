@@ -288,8 +288,8 @@ namespace BlazorBounce
 #if Logging
                 Logger.LogDebug($"OnParametersSet changed _cachedValue value");
 #endif
-                if (!EqualityComparer<T>.Default.Equals(_componentValue, Value))
-                {
+                //if (!EqualityComparer<T>.Default.Equals(_componentValue, Value))
+                //{
 #if Logging
                     Logger.LogDebug("OnParametersSet update _componentValue value from '" + _componentValue?.ToString() ?? "null" + "'");
 #endif
@@ -299,7 +299,7 @@ namespace BlazorBounce
                     {
                         SetComponentValue?.Invoke(this, null);
                     }
-                }
+                //}
             //}
         }
 

@@ -293,6 +293,7 @@ namespace BlazorBounce
 #if Logging
                     Logger.LogDebug("OnParametersSet update _componentValue value from '" + _componentValue?.ToString() ?? "null" + "'");
 #endif
+                    Console.WriteLine($"{CrossReferenceId} _componentValue: {_componentValue} / Value: {Value}");
                     _componentValue = Value;
                     if (_hasInstantiated)
                     {
