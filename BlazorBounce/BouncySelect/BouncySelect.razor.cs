@@ -15,7 +15,7 @@ namespace BlazorBounce
     /// <summary>
     /// A Material Theme select.
     /// </summary>
-    public partial class BouncySelect<TItem> : DebouncedValidatingInputComponentFoundation<TItem>
+    public partial class BouncySelect<TItem> : BouncyValidatingInputComponentFoundation<TItem>
     {
 #nullable enable annotations
         /// <summary>

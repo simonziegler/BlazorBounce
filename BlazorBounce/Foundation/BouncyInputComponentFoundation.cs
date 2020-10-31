@@ -41,7 +41,7 @@ namespace BlazorBounce
         /// @bind-Value="@model.PropertyName"
         /// </example>
         [Parameter] public T Value { get; set; }
-        private T _cachedValue;
+        //private T _cachedValue;
 
 
         /// <summary>
@@ -244,7 +244,7 @@ namespace BlazorBounce
 #if Logging
                 Logger.LogDebug($"SetParametersAsync setting ComponentValue value to '{Value?.ToString() ?? "null"}'");
 #endif
-                _cachedValue = Value;
+                //_cachedValue = Value;
                 _componentValue = Value;
             }
             else if (CascadedEditContext != EditContext)
@@ -282,9 +282,9 @@ namespace BlazorBounce
 #if LoggingVerbose
             Logger.LogDebug($"OnParametersSet setter entered: _cachedValue is '{_cachedValue?.ToString() ?? "null"}' and Value is'{Value?.ToString() ?? "null"}'");
 #endif
-            if (!EqualityComparer<T>.Default.Equals(_cachedValue, Value))
-            {
-                _cachedValue = Value;
+            //if (!EqualityComparer<T>.Default.Equals(_cachedValue, Value))
+            //{
+            //    _cachedValue = Value;
 #if Logging
                 Logger.LogDebug($"OnParametersSet changed _cachedValue value");
 #endif
@@ -293,13 +293,14 @@ namespace BlazorBounce
 #if Logging
                     Logger.LogDebug("OnParametersSet update _componentValue value from '" + _componentValue?.ToString() ?? "null" + "'");
 #endif
+                    Console.WriteLine($"{CrossReferenceId} _componentValue: {_componentValue} / Value: {Value}");
                     _componentValue = Value;
                     if (_hasInstantiated)
                     {
                         SetComponentValue?.Invoke(this, null);
                     }
                 }
-            }
+            //}
         }
 
 

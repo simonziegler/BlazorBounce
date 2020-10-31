@@ -1,5 +1,5 @@
 ﻿@namespace BlazorBounce
-@inherits DebouncedValidatingInputComponentFoundation<TItem>
+@inherits BouncyValidatingInputComponentFoundation<TItem>
 @typeparam TItem
 
 
@@ -62,7 +62,7 @@
         }
     </div>
 
-    <div id="@listboxId" 
+    <div id="@listboxId"
          class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fixed">
 
         <ul class="mdc-list">
@@ -85,4 +85,7 @@
             }
         </ul>
     </div>
+</div>
+<div class="mdc-typography--caption">
+    @CrossReferenceId
 </div>

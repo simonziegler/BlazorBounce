@@ -28,12 +28,14 @@
                          Label="Two Way Bound"
                          Items="@Rainbow" />
     </p>
+
+    <p>Value: '@DebouncedNoCascadingValue'/'@Rainbow.Where(r => r.SelectedValue == DebouncedNoCascadingValue).FirstOrDefault()?.Label'</p>
 </div>
 
 <div class="mdc-layout-grid__cell--span-4" style="background-color: #eee; padding: 1rem;">
     <h1 class="mdc-typography--headline6">Debounced / Fixed-True Cascading Value</h1>
 
-    <CascadingValue Value="@FixedTrueDefaults" IsFixed="true">
+    <CascadingValue Value="@FixedTrueCV" IsFixed="true">
         <p>
             <DebouncedSelect @bind-Value="@DebouncedFixedTrueCascadingValue"
                              Label="Two Way Bound"
@@ -45,13 +47,15 @@
                              Label="Two Way Bound"
                              Items="@Rainbow" />
         </p>
+
+        <p>Value: '@DebouncedFixedTrueCascadingValue'/'@Rainbow.Where(r => r.SelectedValue == DebouncedFixedTrueCascadingValue).FirstOrDefault()?.Label'</p>
     </CascadingValue>
 </div>
 
 <div class="mdc-layout-grid__cell--span-4" style="background-color: #eee; padding: 1rem;">
     <h1 class="mdc-typography--headline6">Debounced / Fixed-False Cascading Value</h1>
 
-    <CascadingValue Value="@FixedFalseDefaults" IsFixed="false">
+    <CascadingValue Value="@FixedFalseCV" IsFixed="false">
         <p>
             <DebouncedSelect @bind-Value="@DebouncedFixedFalseCascadingValue"
                              Label="Two Way Bound"
@@ -63,6 +67,8 @@
                              Label="Two Way Bound"
                              Items="@Rainbow" />
         </p>
+
+        <p>Value: '@DebouncedFixedFalseCascadingValue'/'@Rainbow.Where(r => r.SelectedValue == DebouncedFixedFalseCascadingValue).FirstOrDefault()?.Label'</p>
     </CascadingValue>
 </div>
 
@@ -85,12 +91,14 @@
                       Label="Two Way Bound"
                       Items="@Rainbow" />
     </p>
+
+    <p>Value: '@BouncyNoCascadingValue'/'@Rainbow.Where(r => r.SelectedValue == BouncyNoCascadingValue).FirstOrDefault()?.Label'</p>
 </div>
 
 <div class="mdc-layout-grid__cell--span-4" style="background-color: #eee; padding: 1rem;">
     <h1 class="mdc-typography--headline6">Bouncy / Fixed-True Cascading Value</h1>
 
-    <CascadingValue Value="@FixedTrueDefaults" IsFixed="true">
+    <CascadingValue Value="@FixedTrueCV" IsFixed="true">
         <p>
             <BouncySelect @bind-Value="@BouncyFixedTrueCascadingValue"
                           Label="Two Way Bound"
@@ -102,13 +110,15 @@
                           Label="Two Way Bound"
                           Items="@Rainbow" />
         </p>
+
+        <p>Value: '@BouncyFixedTrueCascadingValue'/'@Rainbow.Where(r => r.SelectedValue == BouncyFixedTrueCascadingValue).FirstOrDefault()?.Label'</p>
     </CascadingValue>
 </div>
 
 <div class="mdc-layout-grid__cell--span-4" style="background-color: #eee; padding: 1rem;">
     <h1 class="mdc-typography--headline6">Bouncy / Fixed-False Cascading Value</h1>
 
-    <CascadingValue Value="@FixedFalseDefaults" IsFixed="false">
+    <CascadingValue Value="@FixedFalseCV" IsFixed="false">
         <p>
             <BouncySelect @bind-Value="@BouncyFixedFalseCascadingValue"
                           Label="Two Way Bound"
@@ -120,6 +130,8 @@
                           Label="Two Way Bound"
                           Items="@Rainbow" />
         </p>
+
+        <p>Value: '@BouncyFixedFalseCascadingValue'/'@Rainbow.Where(r => r.SelectedValue == BouncyFixedFalseCascadingValue).FirstOrDefault()?.Label'</p>
     </CascadingValue>
 </div>
 
@@ -146,13 +158,14 @@
     string BouncyFixedFalseCascadingValue { get; set; } = Rainbow[0].SelectedValue;
 
 
+    
 
-    MBCascadingDefaults FixedTrueDefaults = new MBCascadingDefaults
+    MBCascadingDefaults FixedTrueCV = new MBCascadingDefaults
     {
         SelectInputStyle = MBSelectInputStyle.Outlined
     };
 
-    MBCascadingDefaults FixedFalseDefaults = new MBCascadingDefaults
+    MBCascadingDefaults FixedFalseCV = new MBCascadingDefaults
     {
         SelectInputStyle = MBSelectInputStyle.Outlined,
         ThemeDensity = MBDensity.Minus4

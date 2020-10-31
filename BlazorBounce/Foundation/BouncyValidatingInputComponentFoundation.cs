@@ -9,7 +9,7 @@ namespace BlazorBounce
     /// A DRY inspired abstract class providing <see cref="MBSelect{TItem}"/> and <see cref="MBRadioButtonGroup{TItem}"/> with validation.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public abstract class BouncyValidatingInputComponentFoundation<T> : DebouncedInputComponentFoundation<T>
+    public abstract class BouncyValidatingInputComponentFoundation<T> : BouncyInputComponentFoundation<T>
     {
         // This method was added in the interest of DRY and is used by MBSelect & MBRadioButtonGroup
         /// <summary>
@@ -17,7 +17,7 @@ namespace BlazorBounce
         /// </summary>
         /// <param name="items">The item list</param>
         /// <param name="appliedItemValidation">Specification of the required validation <see cref="MBItemValidation"/></param>
-        /// <returns>The item in the list matching <see cref="DebouncedInputComponentFoundation{T}._cachedValue"/></returns>
+        /// <returns>The item in the list matching <see cref="BouncyInputComponentFoundation{T}._cachedValue"/></returns>
         /// <exception cref="ArgumentException"/>
         public T ValidateItemList(IEnumerable<MBListElement<T>> items, MBItemValidation appliedItemValidation)
         {
