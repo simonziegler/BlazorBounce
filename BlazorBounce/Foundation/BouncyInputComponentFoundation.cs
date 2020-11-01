@@ -105,10 +105,12 @@ namespace BlazorBounce
 #if Logging
                     Logger.LogDebug($"ComponentValue setter changed _componentValue");
 #endif
+                    Console.WriteLine("");
+                    Console.WriteLine($"{CrossReferenceId} setting _componentValue from {_componentValue} to: {value}");
                     _componentValue = value;
                     _ = ValueChanged.InvokeAsync(value);
                     if (EditContext != null && IsValidFormField)
-
+                    {
                         if (EditContext != null && IsValidFormField)
                         {
                             if (string.IsNullOrWhiteSpace(FieldIdentifier.FieldName))
@@ -120,6 +122,7 @@ namespace BlazorBounce
                                 EditContext?.NotifyFieldChanged(FieldIdentifier);
                             }
                         }
+                    }
                 }
             }
         }
@@ -288,18 +291,18 @@ namespace BlazorBounce
 #if Logging
                 Logger.LogDebug($"OnParametersSet changed _cachedValue value");
 #endif
-                //if (!EqualityComparer<T>.Default.Equals(_componentValue, Value))
-                //{
+                if (!EqualityComparer<T>.Default.Equals(_componentValue, Value))
+                {
 #if Logging
                     Logger.LogDebug("OnParametersSet update _componentValue value from '" + _componentValue?.ToString() ?? "null" + "'");
 #endif
-                    Console.WriteLine($"{CrossReferenceId} _componentValue: {_componentValue} / Value: {Value}");
+                Console.WriteLine($"{CrossReferenceId} _componentValue: {_componentValue} / Value: {Value}");
                     _componentValue = Value;
                     if (_hasInstantiated)
                     {
                         SetComponentValue?.Invoke(this, null);
                     }
-                //}
+                }
             //}
         }
 

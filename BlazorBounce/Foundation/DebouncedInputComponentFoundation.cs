@@ -105,10 +105,12 @@ namespace BlazorBounce
 #if Logging
                     Logger.LogDebug($"ComponentValue setter changed _componentValue");
 #endif
+                    Console.WriteLine("");
+                    Console.WriteLine($"{CrossReferenceId} setting _componentValue from {_componentValue} to: {value}");
                     _componentValue = value;
                     _ = ValueChanged.InvokeAsync(value);
                     if (EditContext != null && IsValidFormField)
-
+                    {
                         if (EditContext != null && IsValidFormField)
                         {
                             if (string.IsNullOrWhiteSpace(FieldIdentifier.FieldName))
@@ -120,6 +122,7 @@ namespace BlazorBounce
                                 EditContext?.NotifyFieldChanged(FieldIdentifier);
                             }
                         }
+                    }
                 }
             }
         }

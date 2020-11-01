@@ -7,6 +7,18 @@
         Demonstrates how Blazor two-way binding bounces when (i) components are enclosed in cascading values and (ii) those
         components use a javascript web library such as Google's Material Components Web.
     </p>
+
+    <p class="mdc-typography--body1">
+        Open developer tools to see output presented with <code>Console.WriteLine()</code>. You'll see notification of when a change
+        event is received from Material Components Web setting <code>_componentValue</code> equal to the relevant selected <code>value</code>.
+        Immediately after that you'll see which components (referenced by a guid releated unique id) are attempting to update values via JSInterop
+        as a result of the relevant selection having been made.
+    </p>
+
+    <p class="mdc-typography--body1">
+        See debouncing versus lack of debouncing in <code>DebouncedInputComponentFoundation.cs</code> and <code>BouncyInputComponentFoundation.cs</code>
+        at lines 108-125 (code is the same) and 288-306 (the only place that differs between the selects).
+    </p>
 </div>
 
 
