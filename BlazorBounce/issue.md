@@ -5,7 +5,7 @@ touched upon in #20244, where Steve asked if we could raise an issue with a limi
 
 @MarkStega and I have modified [Material.Blazor](https://material-blazor.com) to adjust to the situation as described by Steve, and are fully comfortable that
 our needs are met. That said, we believe that the "bounciness" that Blazor can exhibit, in particular when components are surrounded by a cascading falue with
-`IsFixed="false"` will lead other developers to experience issues. To demonstrate how this can come about we have prepared a repo at https://github.com/simonziegler/BlazorBounce.
+`IsFixed="false"` will lead other developers to experience issues. To demonstrate how this can come about we have prepared a repo at https://github.com/Material-Blazor/BlazorBounce.
 
 ### Examining Bounce with our repo
 
