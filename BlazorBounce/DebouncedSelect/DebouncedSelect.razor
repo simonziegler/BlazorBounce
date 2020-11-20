@@ -17,11 +17,6 @@
             <span class="mdc-select__ripple"></span>
         }
 
-        @if (!string.IsNullOrWhiteSpace(LeadingIcon))
-        {
-            <MBIcon IconName="@LeadingIcon" IconFoundry="@IconFoundry" class="mdc-select__icon" tabindex="-1" role="button" />
-        }
-
         <span id="@selectedTextId" class="mdc-select__selected-text" aria-disabled="@Disabled"></span>
         <span class="mdc-select__dropdown-icon">
             <svg class="mdc-select__dropdown-icon-graphic"
