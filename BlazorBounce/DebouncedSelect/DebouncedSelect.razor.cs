@@ -1,6 +1,4 @@
-﻿using Material.Blazor.Internal;
-
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.Logging;
 using Microsoft.JSInterop;
 
@@ -8,7 +6,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Material.Blazor;
 
 namespace BlazorBounce
 {
@@ -64,16 +61,6 @@ namespace BlazorBounce
         /// The leading icon's name. No leading icon shown if not set.
         /// </summary>
         [Parameter] public string? LeadingIcon { get; set; }
-
-
-        /// <summary>
-        /// The foundry to use for both leading and trailing icons.
-        /// <para><c>IconFoundry="IconHelper.MIIcon()"</c></para>
-        /// <para><c>IconFoundry="IconHelper.FAIcon()"</c></para>
-        /// <para><c>IconFoundry="IconHelper.OIIcon()"</c></para>
-        /// <para>Overrides <see cref="MBCascadingDefaults.IconFoundryName"/></para>
-        /// </summary>
-        [Parameter] public IMBIconFoundry? IconFoundry { get; set; }
 
 
         /// <summary>
